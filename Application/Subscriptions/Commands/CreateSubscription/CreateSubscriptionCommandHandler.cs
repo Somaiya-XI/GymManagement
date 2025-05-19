@@ -1,5 +1,4 @@
 ﻿using Application.Common.Interfaces;
-using Application.Services;
 using Domain.Subscriptions;
 using MediatR;
 using ErrorOr;

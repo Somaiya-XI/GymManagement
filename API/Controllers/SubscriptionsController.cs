@@ -1,5 +1,4 @@
-﻿using Application.Services;
-using Application.Subscriptions.Commands.CreateSubscription;
+﻿using Application.Subscriptions.Commands.CreateSubscription;
 using Application.Subscriptions.Commands.DeleteSubscription;
 using Application.Subscriptions.Queries.GetSubscription;
 using Contracts.Subscriptions;
@@ -8,8 +7,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using DomainSubscriptionType = Domain.Subscriptions.SubscriptionType;
 namespace API.Controllers;
-[ApiController]
-[Route("[controller]")]
+
 public class SubscriptionsController : ApiController
 {
     private readonly ISender _mediator;
@@ -27,7 +25,7 @@ public class SubscriptionsController : ApiController
         if (!DomainSubscriptionType.TryFromName(request.SubscriptionType.ToString(), out var subscriptionType))
         {
             return Problem(statusCode: StatusCodes.Status400BadRequest, detail: "Invalid subscription type");
-        }
+        } 
         
         var command = new CreateSubscriptionCommand(
             subscriptionType ,
